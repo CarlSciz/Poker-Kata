@@ -52,6 +52,17 @@ public class DeltCards {
 		}
 }
 	
+	public static boolean checkFlush(Player player) {
+		Card[] playerHand = player.getHand();
+		
+		if(playerHand[0].getSuit() == playerHand[1].getSuit() && playerHand[0].getSuit() == playerHand[2].getSuit()
+				&& playerHand[0].getSuit() == playerHand[3].getSuit()
+				&& playerHand[0].getSuit() == playerHand[4].getSuit()) {
+			return true;
+		} else {
+			return false;
+		}
+}
 	public static boolean checkPair(Player player) {
 		Card[] playerHand = player.getHand();
 		
@@ -79,6 +90,30 @@ public class DeltCards {
 			}
 		}
 	}
+		return false;
+}
+	public static boolean checkFullHouse(Player player) {
+		Card[] playerHand = player.getHand();
+		
+		for (int i = 0; i <= 4; i++) {
+			for(int j =4; j >=0; j--) {
+				for(int k = 0; k <=4; k++) {
+					for(int l = 4; l >=0; l--) {
+						for(int m = 0; m <=0; m++) {
+					if (m != i && m != j && m != k && m != l &&
+						l != k && l != j && l != i &&	
+						j !=i && k != i && k != j && 
+						playerHand[l].getValue() == playerHand[m].getValue()
+					&& playerHand[i].getValue() == playerHand[j].getValue() 
+					&& playerHand[i].getValue() == playerHand[k].getValue() 
+					&& playerHand[k].getValue() == playerHand[j].getValue()) {
+					return true;
+				}
+			}
+		}
+	}
+			}
+		}
 		return false;
 }
 }

@@ -66,6 +66,23 @@ class test {
 		}
 	
 	@Test
+	public void FlushHand() {
+		
+		Player mockPlayer = new Player();
+		
+		Card cardA = new Card(Suit.Heart, Value.Two);
+		Card cardB = new Card(Suit.Heart, Value.Five);
+		Card cardC = new Card(Suit.Heart, Value.Queen);
+		Card cardD = new Card(Suit.Heart, Value.Seven);
+		Card cardE = new Card(Suit.Heart, Value.Ten);
+		Card[] mockHand = {cardA, cardB, cardC, cardD, cardE};
+				
+		mockPlayer.setHand(mockHand);
+		
+		assertEquals(DeltCards.checkFlush(mockPlayer), true);
+		}
+	
+	@Test
 	public void pairTrue() {
 		Player mockPlayer = new Player();
 		
@@ -125,6 +142,22 @@ class test {
 		Card[] mockHand = {cardA, cardB, cardC, cardD, cardE};
 		mockPlayer.setHand(mockHand);
 		assertFalse(DeltCards.checkThreeOfAKind(mockPlayer));
+	
+	}
+	
+	@Test
+	public void fullHouseTrue() {
+		Player mockPlayer = new Player();
+				
+		Card cardA = new Card(Suit.Club, Value.Four);
+		Card cardB = new Card(Suit.Diamond, Value.Four);
+		Card cardC = new Card(Suit.Spade, Value.Four);
+		Card cardD = new Card(Suit.Spade, Value.Ten);
+		Card cardE = new Card(Suit.Diamond, Value.Ten);
+		
+		Card[] mockHand = {cardA, cardB, cardC, cardD, cardE};
+		mockPlayer.setHand(mockHand);
+		assertFalse(DeltCards.checkFullHouse(mockPlayer));
 	
 	}
 }
