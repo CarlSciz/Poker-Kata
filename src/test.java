@@ -5,28 +5,39 @@ import java.util.Random;
 import org.junit.jupiter.api.Test;
 
 class test {
+	
+	Deck deck = new Deck();
+	Random random = new Random();
+	Card[] testDeckA = deck.getCards();
 
+	
 	@Test
 	public void deckSize() {
-		Deck deck = new Deck();
-		Card [] testDeck = deck.getCards();
-		assertEquals(52, testDeck.length);
+		assertEquals(52, testDeckA.length);
 	}
 	
 	@Test
 	public void randomCard() {
-		Deck deck = new Deck();
-		Random random = new Random();
-		Card[] testDeck = deck.getCards();
 		int cardA = random.nextInt(deck.Size);
 		int cardB = random.nextInt(deck.Size);
 		int cardC = random.nextInt(deck.Size);
 		int cardD = random.nextInt(deck.Size);
 		int cardE = random.nextInt(deck.Size);
 		int cardF = random.nextInt(deck.Size);
-		assertFalse(testDeck[cardA] == testDeck[cardB]);
-		assertFalse(testDeck[cardC] == testDeck[cardD]);
-		assertFalse(testDeck[cardE] == testDeck[cardF]);
+		assertFalse(testDeckA[cardA] == testDeckA[cardB]);
+		assertFalse(testDeckA[cardC] == testDeckA[cardD]);
+		assertFalse(testDeckA[cardE] == testDeckA[cardF]);
+	}
+	
+	@Test
+	public void shuffleDecks() {
+		Deck deckB = new Deck();
+		deckB.shuffleDeck();
+		Card[] shuffledDeck = deckB.getCards();
+		assertFalse(testDeckA == shuffledDeck);
+		
+	
+		
 	}
 	
 }
