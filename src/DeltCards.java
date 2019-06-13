@@ -39,4 +39,16 @@ public class DeltCards {
 	
 	return players;
 }
+	
+	public static boolean checkRoyalFlush(Player player) {
+		Card[] playerHand = player.getHand();
+		
+		if(playerHand[0].getSuit() == playerHand[1].getSuit() && playerHand[0].getSuit() == playerHand[2].getSuit()
+				&& playerHand[0].getSuit() == playerHand[3].getSuit()
+				&& playerHand[0].getSuit() == playerHand[4].getSuit()) {
+			return true;
+		} else {
+			return false;
+		}
+}
 }

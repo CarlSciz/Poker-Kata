@@ -36,7 +36,7 @@ class test {
 		Card[] shuffledDeck = deckB.getCards();
 		assertFalse(testDeckA == shuffledDeck);
 		}
-	
+
 	@Test
 	public void playerHands() {
 		
@@ -47,4 +47,25 @@ class test {
 		assertFalse(players[0].getHand() == players[3].getHand());
 		assertFalse(players[0].getHand() == players[4].getHand());
 	}
-}
+	
+	@Test
+	public void RoyalFlushHand() {
+		
+		Player mockPlayer = new Player();
+		
+		Card cardA = new Card(Suit.Heart, Value.Ace);
+		Card cardB = new Card(Suit.Heart, Value.King);
+		Card cardC = new Card(Suit.Heart, Value.Queen);
+		Card cardD = new Card(Suit.Heart, Value.Jack);
+		Card cardE = new Card(Suit.Heart, Value.Ten);
+		Card[] mockHand = {cardA, cardB, cardC, cardD, cardE};
+				
+		mockPlayer.setHand(mockHand);
+		
+		assertEquals(DeltCards.checkRoyalFlush(mockPlayer), true);
+		}
+	}
+	
+		
+	
+
