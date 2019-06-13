@@ -22,14 +22,13 @@ public class Deck {
 		return cards[index];
 	}
 
-
 public void shuffleDeck() {
 	Random rand = new Random();
 	
 	for (int i = 0; i < Size; i++) {
 		int j = rand.nextInt(Size);
 		swapCards(i, j);
-		}
+	}
 }
 public void swapCards(int i, int j) {
 	Card temp = cards[i];

@@ -9,7 +9,7 @@ class test {
 	Deck deck = new Deck();
 	Random random = new Random();
 	Card[] testDeckA = deck.getCards();
-
+	
 	
 	@Test
 	public void deckSize() {
@@ -28,16 +28,23 @@ class test {
 		assertFalse(testDeckA[cardC] == testDeckA[cardD]);
 		assertFalse(testDeckA[cardE] == testDeckA[cardF]);
 	}
-	
+
 	@Test
 	public void shuffleDecks() {
 		Deck deckB = new Deck();
 		deckB.shuffleDeck();
 		Card[] shuffledDeck = deckB.getCards();
 		assertFalse(testDeckA == shuffledDeck);
-		
+		}
 	
+	@Test
+	public void playerHands() {
 		
+		Player[] players = DeltCards.dealCards();
+		
+		assertFalse(players[0].getHand() == players[1].getHand());
+		assertFalse(players[0].getHand() == players[2].getHand());
+		assertFalse(players[0].getHand() == players[3].getHand());
+		assertFalse(players[0].getHand() == players[4].getHand());
 	}
-	
 }
