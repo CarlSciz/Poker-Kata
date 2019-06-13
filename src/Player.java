@@ -22,5 +22,5 @@ public class Player {
 		return "Player [name=" + name + ", hand=" + Arrays.toString(hand) + "]";
 	}
 	
-	
+
 }

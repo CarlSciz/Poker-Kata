@@ -51,4 +51,34 @@ public class DeltCards {
 			return false;
 		}
 }
+	
+	public static boolean checkPair(Player player) {
+		Card[] playerHand = player.getHand();
+		
+		for (int i = 0; i <= 4; i++) {
+			for(int j =4; j >=0; j--) {
+				if (j !=i && playerHand[i].getValue() == playerHand[j].getValue()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	public static boolean checkThreeOfAKind(Player player) {
+		Card[] playerHand = player.getHand();
+		
+		for (int i = 0; i <= 4; i++) {
+			for(int j =4; j >=0; j--) {
+				for(int k = 0; k <=4; k++) {
+			if (j !=i && k != i && k != j && playerHand[i].getValue() == playerHand[j].getValue() 
+					&& playerHand[i].getValue() == playerHand[k].getValue() 
+					&& playerHand[k].getValue() == playerHand[j].getValue()) {
+					return true;
+				}
+			}
+		}
+	}
+		return false;
+}
 }
